@@ -13,6 +13,17 @@
             "2017-04-02"
           ]
         },
+        "demo": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Demo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Property for demo."
+        },
         "location": {
           "type": "string",
           "description": "Resource location."
@@ -77,6 +88,7 @@
       },
       "required": [
         "apiVersion",
+        "demo",
         "location",
         "name",
         "properties",
@@ -270,6 +282,27 @@
         "hostName"
       ],
       "description": "Properties of the origin created on the CDN endpoint."
+    },
+    "Demo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Demo1",
+                "Demo2"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the demo property."
+        }
+      },
+      "description": "Property for demo."
     },
     "EndpointProperties": {
       "type": "object",
